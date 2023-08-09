@@ -4,7 +4,7 @@ This project demonstrates a simple MNIST digit classifier using a deep learning 
 
 ## Table of Contents
 - [Overview](#overview)
-- [Installation & Usage](#installation)
+- [Installation and Usage](#installation)
 - [Streamlit Deployment](#streamlit-deployment)
 
 ## Overview
@@ -15,7 +15,18 @@ The project consists of the following components:
 2. Grad-CAM implementation to visualize important regions in the input image.
 3. A Streamlit web application to upload images, view predictions, and visualize Grad-CAM heatmaps.
 
-## Installation & Usage
+Streamlit UI:
+![Streamlit UI](https://github.com/bijayshah726/MNIST-app/assets/89373352/5dbf65f3-671f-4df4-acfd-b46c7d3f5415)
+
+Overlayed HeatMap with digit 3:
+![Overlayed Image digit 3](https://github.com/bijayshah726/MNIST-app/assets/89373352/d8471138-aaa6-4627-85a9-570c2a4dab5a)
+
+GradCam HeatMap:
+![GradCam Heat Map for digit 3](https://github.com/bijayshah726/MNIST-app/assets/89373352/3c853013-4685-44a3-861a-315436b72cb5)
+
+
+
+## Installation and Usage
 
 1. Clone this repository to your local machine:
 
@@ -32,13 +43,10 @@ The project consists of the following components:
    ```
 
 2. Use the following URL to view the streamlit app
-   
+   https://mnist-gradcam.streamlit.app/   
 
 
-
-
-
-## Deployment
+## Streamlit Deployment
 Sign up or log in to Streamlit Sharing.
 
 Fork or clone this GitHub repository to your GitHub account.
