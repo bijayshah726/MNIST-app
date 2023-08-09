@@ -35,8 +35,8 @@ Overlayed HeatMap with digit 3:
 - An Operating System like Windows, OsX or Linux
 - A working [Python](https://www.python.org/) installation.
 - a Shell
-  - We recommend [Git Bash](https://git-scm.com/downloads) for Windows 8.1
-  - We recommend [wsl](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux) for For Windows 10
+  - [Git Bash](https://git-scm.com/downloads) for Windows 8.1
+  - [wsl](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux) for For Windows 10
 - an Editor
   - [VS Code](https://code.visualstudio.com/) (Preferred) or [PyCharm](https://www.jetbrains.com/pycharm/).
 - [Git cli](https://git-scm.com/downloads)
