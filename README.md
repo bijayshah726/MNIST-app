@@ -25,8 +25,8 @@ Overlayed HeatMap with digit 3:
 
 ## Installation and Usage
 
-1. Local Machine
-   ### Prerequisites
+### Local Machine
+   #### Prerequisites
 
 - An Operating System like Windows, OsX or Linux
 - A working [Python](https://www.python.org/) installation.
@@ -37,7 +37,7 @@ Overlayed HeatMap with digit 3:
   - [VS Code](https://code.visualstudio.com/) (Preferred) or [PyCharm](https://www.jetbrains.com/pycharm/).
 - [Git cli](https://git-scm.com/downloads)
 
-### Installation
+#### Installation
 
 Clone the repo
 
@@ -51,9 +51,9 @@ cd into the project root folder
 cd MNIST-app
 ```
 
-#### Create virtual environment
+##### Create virtual environment
 
-##### via python
+###### via python
 
 Then you should create a virtual environment named .venv
 
@@ -81,7 +81,7 @@ In a Windows terminal it's
 .venv/Scripts/activate.bat
 ```
 
-##### or via anaconda
+###### or via anaconda
 
 Create virtual environment named MNIST-app
 
@@ -103,7 +103,7 @@ Then you should install the local requirements
 pip install -r requirements.txt
 ```
 
-### Build and run the Application Locally
+#### Build and run the Application Locally
 
 ```bash
 streamlit run app.py  #opens the default browser where the streamlit app can be viewed
@@ -111,7 +111,7 @@ streamlit run app.py  #opens the default browser where the streamlit app can be 
 ```
 
 
-2. Web App
+### Web App
    You can instead view the app and use it for prediction and visualization.
    https://mnist-gradcam.streamlit.app/   
 
