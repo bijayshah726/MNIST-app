@@ -19,10 +19,12 @@ Streamlit UI:
 ![Streamlit UI](https://github.com/bijayshah726/MNIST-app/assets/89373352/5dbf65f3-671f-4df4-acfd-b46c7d3f5415)
 
 Overlayed HeatMap with digit 3:
-![Overlayed Image digit 3](https://github.com/bijayshah726/MNIST-app/assets/89373352/d8471138-aaa6-4627-85a9-570c2a4dab5a)
+![image](https://github.com/bijayshah726/MNIST-app/assets/89373352/7d40c4c9-bd0c-46dc-acce-f5a70e455b91)
+
 
 GradCam HeatMap:
-![GradCam Heat Map for digit 3](https://github.com/bijayshah726/MNIST-app/assets/89373352/3c853013-4685-44a3-861a-315436b72cb5)
+![image](https://github.com/bijayshah726/MNIST-app/assets/89373352/6cda8ea4-9aec-47fe-8d4a-2da371d45ad9)
+
 
 
 
@@ -53,7 +55,7 @@ Fork or clone this GitHub repository to your GitHub account.
 
 Connect your GitHub repository to Streamlit Sharing.
 
-Deploy the app on Streamlit Sharing (more details [here]([url](https://docs.streamlit.io/streamlit-community-cloud/share-your-app)))
+Deploy the app on Streamlit Sharing (more details [here](https://docs.streamlit.io/streamlit-community-cloud/share-your-app))
 
 
 
