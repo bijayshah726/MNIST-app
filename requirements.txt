@@ -1,4 +1,5 @@
 numpy
+matplotlib.pyplot
 tensorflow
 pandas
 pandas_stubs
