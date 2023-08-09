@@ -11,6 +11,13 @@ from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropou
 
 
 def load_dataset():
+    """
+    Load and preprocess the MNIST dataset.
+
+    Returns:
+        tuple: Tuple containing train and test data in the format (x_train, y_train, x_test, y_test).
+    """
+ 
     (x_train, y_train), (x_test, y_test) = mnist.load_data()
     # Normalize pixel values to range [0, 1]
     x_train = x_train.astype('float32') / 255.0
@@ -27,6 +34,12 @@ def load_dataset():
     return x_train, y_train, x_test, y_test
 
 def display_digit():
+    """
+    Display a random digit from the MNIST dataset.
+
+    Returns:
+        np.ndarray: Image array of the displayed digit.
+    """
 
     (x_train_img, y_train), (_,_)= mnist.load_data()
     # Normalize pixel values to range [0, 1]
@@ -43,6 +56,12 @@ def display_digit():
 
 
 def train_model():
+    """
+    Train a CNN model for MNIST digit classification.
+
+    Returns:
+        None
+    """
     # Load and preprocess the MNIST dataset
     x_train, y_train, x_test, y_test = load_dataset()
 
@@ -91,6 +110,18 @@ if 0:
 model = tf.keras.models.load_model('trained_model.h5')
 
 def find_last_conv_layer(model):
+    """
+    Find the name of the last convolutional layer in the model.
+
+    Args:
+        model (tf.keras.Model): The model to search for the last convolutional layer.
+
+    Returns:
+        str: Name of the last convolutional layer.
+        
+    Raises:
+        ValueError: If no 4D convolutional layer is found in the model.
+    """
     for layer in reversed(model.layers):
         # Check if the layer has a 4D output shape (convolutional layer)
         if len(layer.output_shape) == 4:
@@ -107,6 +138,21 @@ def get_output_and_predictions(model, layerName, inputs):
 
 
 def grad_cam(image, model, classIdx, layerName=None, eps=1e-8, alpha=0.5, colormap='viridis'):
+    """
+    Generate Grad-CAM heatmap and overlay it on the image.
+
+    Args:
+        image (np.ndarray): Input image for which to generate the heatmap.
+        model (tf.keras.Model): Trained model used for predictions.
+        classIdx (int): Index of the class for which to generate the heatmap.
+        layerName (str, optional): Name of the target layer. Defaults to None.
+        eps (float, optional): Small constant to avoid division by zero. Defaults to 1e-8.
+        alpha (float, optional): Weight for overlaying the heatmap on the image. Defaults to 0.5.
+        colormap (str, optional): Colormap to use for heatmap visualization. Defaults to 'viridis'.
+
+    Returns:
+        tuple: Tuple containing the overlayed heatmap image and the heatmap image.
+    """
     if layerName is None:
         layerName = find_last_conv_layer(model)
 
@@ -116,7 +162,6 @@ def grad_cam(image, model, classIdx, layerName=None, eps=1e-8, alpha=0.5, colorm
         loss = predictions[:, classIdx]
 
     grads = tape.gradient(loss, convOutputs)
-    print(grads.shape, "grads")
     castConvOutputs = tf.cast(convOutputs > 0, "float32")
     castGrads = tf.cast(grads > 0, "float32")
     guidedGrads = castConvOutputs * castGrads * grads
@@ -125,25 +170,20 @@ def grad_cam(image, model, classIdx, layerName=None, eps=1e-8, alpha=0.5, colorm
 
     weights = tf.reduce_mean(guidedGrads, axis=(0, 1))
     cam = tf.reduce_sum(tf.multiply(weights, convOutputs), axis=-1)
-    print(image.shape, "inside gradcam")
-    print(cam.shape)
 
     (w, h) = (image.shape[2], image.shape[1])
     heatmap = cv2.resize(cam.numpy(), (w, h))  #tf.image resize not working
     numer = heatmap - tf.reduce_min(heatmap)
     denom = (tf.reduce_max(heatmap) - tf.reduce_min(heatmap)) + eps
     heatmap = numer / denom
-    print("outside", heatmap.shape)
 
     # Apply colormap using matplotlib's built-in colormaps
     heatmap_colored = plt.get_cmap(colormap)(heatmap.numpy())[..., :3]
     # Normalize the heatmap_colored to values between 0 and 1
     heatmap_colored = heatmap_colored / np.max(heatmap_colored)
-    print(heatmap_colored.shape, image.shape)
 
     heatmap_overlay = alpha * image[0] + (1 - alpha) * heatmap_colored
     heatmap_overlay = heatmap_overlay / np.max(heatmap_overlay)  # Normalize
-    print(heatmap_overlay.shape, image.shape)
 
     heatmap_overlay = Image.fromarray(np.uint8(heatmap_overlay*255))  #conversion to image format
     heatmap = Image.fromarray(np.uint8(heatmap*255))
@@ -184,7 +224,6 @@ if uploaded_image is not None:
         # Convert the image to grayscale mode
         pil_image = pil_image.convert("L")
         img_array = np.array(pil_image)
-        print(img_array.shape)
         img_array = img_array.astype('float32') / 255.0
         img_array = np.expand_dims(img_array, axis=0)
         img_array = np.expand_dims(img_array, axis=-1)
@@ -195,7 +234,6 @@ if uploaded_image is not None:
         st.image(pil_image, caption="Uploaded Image", use_column_width=True)
 
         if st.button("Predict"):
-            print(img_array.shape, "inside predict")
             prediction = model.predict(img_array)
             predicted_class = np.argmax(prediction)
             st.write(f"Predicted Class: {predicted_class}")
