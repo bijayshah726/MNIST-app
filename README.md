@@ -22,11 +22,6 @@ Overlayed HeatMap with digit 3:
 ![image](https://github.com/bijayshah726/MNIST-app/assets/89373352/7d40c4c9-bd0c-46dc-acce-f5a70e455b91)
 
 
-GradCam HeatMap:
-![image](https://github.com/bijayshah726/MNIST-app/assets/89373352/6cda8ea4-9aec-47fe-8d4a-2da371d45ad9)
-
-
-
 
 ## Installation and Usage
 
