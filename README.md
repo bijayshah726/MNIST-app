@@ -18,9 +18,11 @@ The project consists of the following components:
 Streamlit UI:
 ![Streamlit UI](https://github.com/bijayshah726/MNIST-app/assets/89373352/5dbf65f3-671f-4df4-acfd-b46c7d3f5415)
 
-Overlayed HeatMap with digit 3:
-![image](https://github.com/bijayshah726/MNIST-app/assets/89373352/7d40c4c9-bd0c-46dc-acce-f5a70e455b91)
+Overlayed HeatMap for digit 9:
+![image](https://github.com/bijayshah726/MNIST-app/assets/89373352/8e522e80-3fad-48a1-a245-c2c94ea52c83)
 
+GradCam HeatMap for digit 9:
+![image](https://github.com/bijayshah726/MNIST-app/assets/89373352/58a7dcaf-8ce8-4d9e-a9af-ff4fd2c109ca)
 
 
 ## Installation and Usage
