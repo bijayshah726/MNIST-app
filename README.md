@@ -25,6 +25,10 @@ Overlayed HeatMap with digit 3:
 
 ## Installation and Usage
 
+### Web App
+   You can directly view the app and use it for prediction and visualization.
+   https://mnist-gradcam.streamlit.app/ 
+
 ### Local Machine
    #### Prerequisites
 
@@ -111,9 +115,7 @@ streamlit run app.py  #opens the default browser where the streamlit app can be 
 ```
 
 
-### Web App
-   You can instead view the app and use it for prediction and visualization.
-   https://mnist-gradcam.streamlit.app/   
+  
 
 
 ## Streamlit Deployment
