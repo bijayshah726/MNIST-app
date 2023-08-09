@@ -25,21 +25,94 @@ Overlayed HeatMap with digit 3:
 
 ## Installation and Usage
 
-1. Clone this repository to your local machine:
+1. Local Machine
+   ### Prerequisites
 
-   ```bash
-   git clone https://github.com/bijayshah726/mnist-app.git
+- An Operating System like Windows, OsX or Linux
+- A working [Python](https://www.python.org/) installation.
+- a Shell
+  - We recommend [Git Bash](https://git-scm.com/downloads) for Windows 8.1
+  - We recommend [wsl](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux) for For Windows 10
+- an Editor
+  - [VS Code](https://code.visualstudio.com/) (Preferred) or [PyCharm](https://www.jetbrains.com/pycharm/).
+- [Git cli](https://git-scm.com/downloads)
 
-   cd mnist-app   #Navigate to local directory
-   python -m venv venv   #Optional (but recommended to create virtual environment)
-   source venv/bin/activate   # Linux/Mac
-   venv\Scripts\activate      # Windows
-   pip install -r requirements.txt
-   streamlit run app.py  #opens the default browser where the streamlit app can be viewed
-   #Upload an image using the web app and click "Predict" to see the predicted class and Grad-CAM heatmap overlay.
-   ```
+### Installation
 
-2. Use the following URL to view the streamlit app
+Clone the repo
+
+```bash
+git clone https://github.com/bijayshah726/MNIST-app.git
+```
+
+cd into the project root folder
+
+```bash
+cd MNIST-app
+```
+
+#### Create virtual environment
+
+##### via python
+
+Then you should create a virtual environment named .venv
+
+```bash
+python -m venv .venv
+```
+
+and activate the environment.
+
+On Linux, OsX or in a Windows Git Bash terminal it's
+
+```bash
+source .venv/Scripts/activate
+```
+
+or alternatively
+
+```bash
+source .venv/bin/activate
+```
+
+In a Windows terminal it's
+
+```bash
+.venv/Scripts/activate.bat
+```
+
+##### or via anaconda
+
+Create virtual environment named MNIST-app
+
+```bash
+conda create -n MNIST-app python
+```
+
+and activate environment.
+
+```bash
+activate MNIST-app
+```
+
+If you are on windows you need to install some things required by GeoPandas by following [these instructions](https://geoffboeing.com/2014/09/using-geopandas-windows/).
+
+Then you should install the local requirements
+
+```bash
+pip install -r requirements.txt
+```
+
+### Build and run the Application Locally
+
+```bash
+streamlit run app.py  #opens the default browser where the streamlit app can be viewed
+#Upload an image using the web app and click "Predict" to see the predicted class and Grad-CAM heatmap overlay.
+```
+
+
+2. Web App
+   You can instead view the app and use it for prediction and visualization.
    https://mnist-gradcam.streamlit.app/   
 
 
